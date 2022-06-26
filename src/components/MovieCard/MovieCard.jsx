@@ -9,11 +9,10 @@ import Rate from "../Rate";
 const MovieCard = ({
   movie: { Title, Released, imdbRating, Images, Plot },
 }) => {
-  console.log(typeof imdbRating);
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
-        <CardMedia component="img" height="200" image={Images[0]} alt={Title} />
+        <CardMedia component="img" height="200" image={Images} alt={Title} />
         <CardContent>
           <Typography gutterBottom variant="h4" component="div">
             {Title}

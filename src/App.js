@@ -6,10 +6,19 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [searchMovie, setSearchMovie] = useState("");
-  const [rating, setRating] = useState();
+  const [rating, setRating] = useState(10);
   const [newMovie, setNewMovie] = useState({});
+  const [moviesStore, setMoviesStore] = useState([]);
 
-  useEffect(() => {}, [newMovie]);
+  const add = newMovie;
+  /*  {
+    Title: "stranger things",
+    Released: "20 Jan 2015",
+    imdbRating: 9.0,
+    Plot:"Hawkins, Indiana, 1983. A young boy, Will Byers, goes missing near a top-secret government laboratory. That same night, a strange young girl appears at a diner in the town. She has telekinetic powers and is on the run from the laboratory."
+    Images:
+      "https://static01.nyt.com/images/2019/07/08/arts/08sstrangerthings/80a98d5238ba4f0aa59ba7bff5787528-superJumbo.jpg",
+  } */
 
   return (
     <div className="App">
