@@ -17,7 +17,7 @@ const defaultValues = {
   Images: "",
 };
 
-const AddMovie = ({ setOpenForm, setNewMovie }) => {
+const AddMovie = ({ setOpenForm, addMovie }) => {
   const [formValues, setFormValues] = useState(defaultValues);
 
   const handleTitleChange = (e) => {
@@ -53,6 +53,32 @@ const AddMovie = ({ setOpenForm, setNewMovie }) => {
 
   const [date, setDate] = useState(new Date());
 
+  function formatDate(date) {
+    const monthNames = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    var d = new Date(date),
+      month = "" + monthNames[d.getMonth() + 1],
+      day = "" + d.getDate(),
+      year = d.getFullYear();
+
+    if (month.length < 2) month = "0" + month;
+    if (day.length < 2) day = "0" + day;
+
+    return [day, month, year].join(" ");
+  }
+
   const handleChange = (newValue) => {
     setDate(newValue);
   };
@@ -60,13 +86,15 @@ const AddMovie = ({ setOpenForm, setNewMovie }) => {
   const handleSubmit = () => {
     setOpenForm(false);
 
-    setNewMovie({
+    const newMovie = {
       Title: formValues.title,
-      Released: date,
+      Released: formatDate(date),
       Plot: formValues.plot,
       imdbRating: formValues.rating,
       Images: formValues.Images,
-    });
+    };
+
+    addMovie(newMovie);
   };
 
   return (

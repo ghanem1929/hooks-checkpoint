@@ -64,7 +64,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const Filter = ({ setSearchMovie, setRating, rating, setNewMovie }) => {
+const Filter = ({ setSearchMovie, setRating, rating, addMovie }) => {
   const [text, setText] = useState("");
   const [openForm, setOpenForm] = useState(false);
   const handleOpenForm = () => setOpenForm(true);
@@ -125,10 +125,7 @@ const Filter = ({ setSearchMovie, setRating, rating, setNewMovie }) => {
                 aria-describedby="modal-modal-description"
               >
                 <Box sx={style}>
-                  <AddMovie
-                    setOpenForm={setOpenForm}
-                    setNewMovie={setNewMovie}
-                  />
+                  <AddMovie setOpenForm={setOpenForm} addMovie={addMovie} />
                 </Box>
               </Modal>
             </div>
